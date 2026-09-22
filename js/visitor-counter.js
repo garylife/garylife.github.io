@@ -12,7 +12,7 @@
 (function () {
     'use strict';
 
-    var ENDPOINT = 'https://garylife-counter.PASTE-YOUR-SUBDOMAIN.workers.dev';
+    var ENDPOINT = 'https://garylife-counter.garylife.workers.dev';
 
     // 占位符还没替换就先不执行，保证部署前页面行为完全不变
     if (!ENDPOINT || ENDPOINT.indexOf('PASTE-YOUR-SUBDOMAIN') !== -1) return;

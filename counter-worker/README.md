@@ -75,22 +75,25 @@ npx wrangler dev      # 本地起一个 http://localhost:8787，KV 用本地模�
 
 ### 验证
 
-部署完成后先自测：
+已部署地址：`https://garylife-counter.garylife.workers.dev`
 
 ```bash
-curl "https://garylife-counter.<子域>.workers.dev/"
-curl "https://garylife-counter.<子域>.workers.dev/hit?path=/"
-curl "https://garylife-counter.<子域>.workers.dev/stats?path=/"
+curl "https://garylife-counter.garylife.workers.dev/"              # 健康检查
+curl "https://garylife-counter.garylife.workers.dev/stats?path=/"   # 只读，不计数
+curl "https://garylife-counter.garylife.workers.dev/hit?path=/"     # 计数一次
 ```
 
-连调两次 `/hit?path=/`，第二次的 `counted` 应该是 `false`、数字不涨，说明去重生效。
+连打两次 `/hit?path=/`，第二次的 `counted` 应该是 `false`、数字不涨，说明去重生效。
+
+> 注意：`/` 是健康检查，**不读 KV**，所以它返回正常并不代表绑定成功。
+> 要确认 KV 绑定生效，必须打 `/stats` 或 `/hit`——绑定没生效时这两个会返回 500。
 
 ## 接进站点
 
-打开 `js/visitor-counter.js`，把顶部的 `ENDPOINT` 换成上一步拿到的地址，然后提交站点：
+`js/visitor-counter.js` 顶部的 `ENDPOINT` 已指向上面那个地址：
 
 ```js
-var ENDPOINT = 'https://garylife-counter.<子域>.workers.dev';
+var ENDPOINT = 'https://garylife-counter.garylife.workers.dev';
 ```
 
 页脚那行 `<li id="visitor-counter">` 默认是 `display: none`，拿到数据后才显示，所以这段代码可以先提交、后部署，顺序反过来也不会出问题。
