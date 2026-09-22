@@ -35,14 +35,18 @@
 不需要装 Node、不需要装 wrangler。
 
 1. 打开 https://dash.cloudflare.com/sign-up 注册，邮箱验证即可。
-2. 左侧 **Storage & Databases → KV → Create instance**，名字填 `garylife-counter`，创建。
-3. 左侧 **Workers & Pages → Create → Worker**，名字填 `garylife-counter`，创建后进入在线编辑器。
-4. 把本目录 `worker.js` 的**全部内容**粘贴进去，覆盖掉编辑器里的示例代码，先点 **Deploy** 保存。
-5. 回到这个 Worker 的 **Settings → Bindings → Add → KV Namespace**：
+2. 左侧 **Workers & Pages**，首次会让你设一个 **workers.dev 子域名**（如 `garylife`）。这个名字全局唯一，被占就换一个，它决定最后域名的后缀。
+3. 左侧 **Storage & Databases → KV**（老账号在 Workers & Pages → KV）→ **Create instance**，名字填 `garylife-counter`。
+4. **Workers & Pages → Create application → Create Worker**，名字填 `garylife-counter`（这个名字决定 URL 前缀），点 **Deploy**。
+   - 注意："Create Worker" 在上一步点进 Create application 之后才出现；网上老教程写的 "Start with Hello World" 是已过时的旧标签。
+5. 进这个 Worker 的详情页，点 **Edit code** 打开在线编辑器 → **全选删掉示例代码** → 粘贴本目录 `worker.js` 的**全部内容** → 点 **Deploy**。
+6. **Settings → Bindings → Add → KV namespace**：
    - Variable name 填 `COUNTER`（必须一字不差，代码里就是读这个名字）
-   - KV namespace 选第 2 步建的 `garylife-counter`
-   - 保存后**需要再 Deploy 一次**才会生效。
-6. 页面上方会显示访问地址，形如 `https://garylife-counter.<你的子域>.workers.dev`。
+   - KV namespace 选第 3 步建的 `garylife-counter`
+   - 保存后**需要再 Deploy 一次**才会生效
+7. 页面上的访问地址形如 `https://garylife-counter.<你的子域>.workers.dev`。
+
+菜单名 Cloudflare 改过好几轮，找不到就用顶部搜索框搜 `KV` 或 `Workers`。
 
 ### 路线 B：wrangler 命令行（以后要反复改代码再走这条）
 
