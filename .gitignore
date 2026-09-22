@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# 工作区助手资料（会话记忆、技能等），不要发布到站点
+.workbuddy/
+
+# 本地部署工具的产物
+node_modules/
+counter-worker/.wrangler/
+counter-worker/.dev.vars
