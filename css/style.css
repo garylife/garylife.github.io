@@ -985,6 +985,28 @@
 				color: rgba(255, 255, 255, 0.4);
 			}
 
+		#footer .stats {
+			color: rgba(255, 255, 255, 0.4);
+			font-size: 0.8em;
+			list-style: none;
+			margin: 1em 0 0 0;
+			padding: 0;
+		}
+
+			#footer .stats li {
+				display: inline-block;
+				line-height: 1em;
+				margin-left: 0.75em;
+			}
+
+				#footer .stats li:first-child {
+					margin-left: 0;
+				}
+
+				#footer .stats li .icon {
+					margin-right: 0.35em;
+				}
+
 		#footer .copyright {
 			color: rgba(255, 255, 255, 0.4);
 			font-size: 0.8em;
