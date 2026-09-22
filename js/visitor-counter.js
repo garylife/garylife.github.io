@@ -1,7 +1,6 @@
 /* 访客计数器 —— 前端接入脚本
  *
- * 数据来自自建的 Cloudflare Worker，源码在同仓库的 counter-worker/ 目录，
- * 部署步骤见 counter-worker/README.md。
+ * 数据来自自建的 Cloudflare Worker，源码在同仓库的 counter-worker/ 目录。
  *
  * 部署完成后只需要改下面这一行 ENDPOINT，其它都不用动。
  *
